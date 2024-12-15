@@ -1,12 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './home';
-import Store from './Store';
-import Contact from './contact';
-import About from './about';
-import Login from './login';
-import Logout from './logout';
+import { Outlet, Link } from 'react-router-dom';
 
 const Nav = () => {
     const [mobile, setMobile] = React.useState(false);
@@ -28,7 +21,8 @@ const Nav = () => {
     }, [])
 
     return (
-        <>
+        <div>
+
             {!mobile ? (
                 <nav className="bg-violet-100 text-black text-xl h-[60px] flex justify-around items-center">
                     <div className="flex justify-center space-x-4">
@@ -81,7 +75,6 @@ const Nav = () => {
                                         <span className="absolute left-0 bottom-0 w-full h-[2px] bg-purple-800 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
                                     </Link>
                                 </li>
-                                
                                 <li>
                                     <Link to="/store" className="relative group text-black hover:text-purple-800 transition-colors duration-300">
                                         Store
@@ -103,7 +96,7 @@ const Nav = () => {
 
                                 <div className='flex flex-row gap-10 m-10'>
                                     <li>
-                                        <Link to="/login" className="rounded-md p-2   bg-[#942192] relative group text-white hover:text-white transition-colors duration-300">
+                                        <Link to="/login" className="rounded-md p-2 bg-[#942192] relative group text-white hover:text-white transition-colors duration-300">
                                             Login
                                             <span className="absolute left-0 bottom-0 w-full h-[2px] bg-purple-800 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
                                         </Link>
@@ -133,24 +126,14 @@ const Nav = () => {
                                 fill="#6A0DAD" /* Deep Purple color */
                             />
                         </svg>
-
                     )}
-
                 </nav>
             )}
 
+            {/* Outlet for rendering matched route */}
+            <Outlet />
 
-            
-                <Routes>
-                    <Route path="/" index element={<Home />} />
-                    <Route path="/store" element={<Store />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/logout" element={<Logout />} />
-                </Routes>
-            
-        </>
+        </div>
     );
 };
 

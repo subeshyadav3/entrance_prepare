@@ -1,5 +1,5 @@
 import React from 'react';
-import Footer from './footer';
+
 const Home = () => {
     return (
         <div className='flex flex-col'>
@@ -94,7 +94,7 @@ const Home = () => {
             </div>
 
             
-            <Footer />
+            
         </div>
     );
 };
