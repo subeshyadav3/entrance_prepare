@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './home';
 import Store from './Store';
 import Contact from './contact';
@@ -142,15 +142,16 @@ const Nav = () => {
             )}
 
 
-
-            <Routes>
-                <Route path="/" index element={<Home />} />
-                <Route path="/store" element={<Store />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/logout" element={<Logout />} />
-            </Routes>
+            <Router basename="/entrance_prepare">
+                <Routes>
+                    <Route path="/" index element={<Home />} />
+                    <Route path="/store" element={<Store />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/logout" element={<Logout />} />
+                </Routes>
+            </Router>
         </>
     );
 };
