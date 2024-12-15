@@ -13,7 +13,7 @@ import Nav from './components/pages/nav';
 
 const App = () => {
   return (
-    <Router>
+    <Router basename='/entrance_prepare'>
       <Nav />
       <Routes>
         <Route path="/" index element={<Home />} />
@@ -21,7 +21,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/logout" element={<Logout />} />
+        <Route path="/" element={<Logout />} />
       </Routes>
       <Footer />
     </Router>
