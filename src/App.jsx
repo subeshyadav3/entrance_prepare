@@ -4,7 +4,7 @@ function App() {
 
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/entrance_prepare">
       <Nav />
       </BrowserRouter>
   )

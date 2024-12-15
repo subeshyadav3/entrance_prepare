@@ -142,7 +142,7 @@ const Nav = () => {
             )}
 
 
-            <Router basename="/entrance_prepare">
+            
                 <Routes>
                     <Route path="/" index element={<Home />} />
                     <Route path="/store" element={<Store />} />
@@ -151,7 +151,7 @@ const Nav = () => {
                     <Route path="/login" element={<Login />} />
                     <Route path="/logout" element={<Logout />} />
                 </Routes>
-            </Router>
+            
         </>
     );
 };
