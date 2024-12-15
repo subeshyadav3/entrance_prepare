@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/entrance_prepare/static/css/main.65e3c1f9.css",
+    "main.js": "/entrance_prepare/static/js/main.a90088aa.js",
+    "index.html": "/entrance_prepare/index.html",
+    "main.65e3c1f9.css.map": "/entrance_prepare/static/css/main.65e3c1f9.css.map",
+    "main.a90088aa.js.map": "/entrance_prepare/static/js/main.a90088aa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.65e3c1f9.css",
+    "static/js/main.a90088aa.js"
+  ]
+}
