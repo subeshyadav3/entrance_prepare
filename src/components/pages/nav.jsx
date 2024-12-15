@@ -81,9 +81,7 @@ const Nav = () => {
                                         <span className="absolute left-0 bottom-0 w-full h-[2px] bg-purple-800 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
                                     </Link>
                                 </li>
-                                <li>
-                                    <Link to="/store">Store</Link>
-                                </li>
+                                
                                 <li>
                                     <Link to="/store" className="relative group text-black hover:text-purple-800 transition-colors duration-300">
                                         Store
@@ -105,13 +103,13 @@ const Nav = () => {
 
                                 <div className='flex flex-row gap-10 m-10'>
                                     <li>
-                                        <Link to="/login" className="rounded-md p-2   bg-[purple-500] relative group text-black hover:text-purple-800 transition-colors duration-300">
+                                        <Link to="/login" className="rounded-md p-2   bg-[#942192] relative group text-white hover:text-white transition-colors duration-300">
                                             Login
                                             <span className="absolute left-0 bottom-0 w-full h-[2px] bg-purple-800 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="/logout" className="rounded-md p-2 bg-purple-500 relative group text-black hover:text-purple-800 transition-colors duration-300">
+                                        <Link to="/logout" className="rounded-md p-2 bg-[#942192] relative group text-white hover:text-white transition-colors duration-300">
                                             Logout
                                             <span className="absolute left-0 bottom-0 w-full h-[2px] bg-purple-800 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
                                         </Link>

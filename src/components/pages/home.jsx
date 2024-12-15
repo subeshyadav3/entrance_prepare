@@ -4,7 +4,7 @@ const Home = () => {
     return (
         <div className='flex flex-col'>
             <div className='relative w-full flex flex-row  bg-[#FCFCFC]  ' >
-                <div className='flex flex-col w-full sm:items-center sm:justify-start  p-7'>
+                <div className='flex flex-col w-full sm:w-1/2 sm:items-center sm:justify-start sm: p-7'>
                     <div>
                         <button className='flex justify-start border-b-2 border-[#942192] w-fit p-0.5 transition-all '>Engineering Entrance</button>
                         <p className='font-poppins font-bold text-3xl text-[#942192]'>Entrance Preparation<br />
@@ -28,8 +28,8 @@ const Home = () => {
                 </div>
 
                 <div className=' hidden sm:flex w-1/2   justify-center  items-center p-5'>
-                
-                    <img className='bg-cover max-w-[400px] p-5 border-3' src="src\assets\home.png" alt="" />
+                <img className='bg-cover max-w-[500px] min-w-[300px] p-5 border-3' src="https://img.freepik.com/premium-vector/girl-is-working-checklist_118167-3651.jpg?w=740" alt="Home" />
+
                 </div>
                 
                 <div class="custom-shape-divider-bottom-1734237866">
@@ -39,9 +39,9 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className='h-[400px] flex flex-col sm:flex-row sm:gap-20  items-center justify-center gap-2 bg-[#FFF5F5] w-full'>
+            <div className='h-[400px] flex flex-col sm:flex-row sm:gap-10 md:gap-20 sm:left-5  items-center justify-center gap-2 bg-[#FFF5F5] w-full'>
 
-                <h1 className='font-poppins text-xl text-[#942192] font-bold sm:text-2xl'>Why??? 
+                <h1 className='font-poppins text-xl text-[#942192] font-bold sm:text-2xl sm:ml-5 '>Why??? 
                      Pulchowk Campus</h1>
                 <div>
                 <ul class="list-disc pl-5 mt-3 text-justify px-3 sm:text-xl">
