@@ -32,4 +32,23 @@
 }
 
 
-/* home second border */
+/* footer border */
+.custom-shape-divider-top-1734256830 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1734256830 svg {
+  position: relative;
+  display: block;
+  width: calc(137% + 1.3px);
+  height: 18px;
+}
+
+.custom-shape-divider-top-1734256830 .shape-fill {
+  fill: #FFEDD5;
+}
