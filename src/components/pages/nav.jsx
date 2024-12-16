@@ -1,5 +1,6 @@
 import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
+// import { motion } from "motion/react"
 
 const Nav = () => {
     const [mobile, setMobile] = React.useState(false);
@@ -20,6 +21,8 @@ const Nav = () => {
         }
     }, [])
 
+
+  
     return (
         <div>
 
@@ -55,7 +58,7 @@ const Nav = () => {
                     </div>
                 </nav>
             ) : (
-                <nav className="bg-violet-100 border-b-2 border-purple-200 text-black text-xl flex justify-center items-end pr-5 flex-col " style={!hamburger ? { height: "80px" } : { height: "100%" }}>
+                <nav  className="bg-violet-100 border-b-2 border-purple-200 text-black text-xl flex justify-center items-end pr-5 flex-col " style={!hamburger ? { height: "80px" } : { height: "100%" }}>
                     {hamburger ? (
                         <div
                             className="flex flex-col justify-around items-center "
@@ -123,14 +126,14 @@ const Nav = () => {
                         >
                             <path
                                 d="M 0 9 L 0 11 L 50 11 L 50 9 Z M 0 24 L 0 26 L 50 26 L 50 24 Z M 0 39 L 0 41 L 50 41 L 50 39 Z"
-                                fill="#6A0DAD" /* Deep Purple color */
+                                fill="#6A0DAD" 
                             />
                         </svg>
                     )}
                 </nav>
             )}
 
-            {/* Outlet for rendering matched route */}
+        
             <Outlet />
 
         </div>
