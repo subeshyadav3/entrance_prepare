@@ -1,7 +1,12 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { logout } from "../authentication/server";
 
 const Logout=()=> {
+    const handleLogout = async () => {
+      console.log("logout");
+        await logout();
+    }
     const ref = useRef(null); // Create a ref for the element
   const isInView = useInView(ref, { once: true }); // Trigger animation only once
 
@@ -29,6 +34,7 @@ const Logout=()=> {
         >
           I slide up when you scroll!
         </motion.div>
+        <button className="h-5 rounded-sm bg-purple-500" onClick={handleLogout}>logout</button>
       </div>
     )
 }   
