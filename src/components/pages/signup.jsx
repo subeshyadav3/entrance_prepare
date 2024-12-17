@@ -10,10 +10,10 @@ const Signup = () => {
 
     const handleSignup = async (e) => {
         console.log(name,email, password);
-        e.preventDefault();  // Prevents the form from submitting normally
+        e.preventDefault();  
         try{
-            await signup(name,email, password);  // Calls the signup function
-            setIsSignedUp(true); // Set isSignedUp to true after successful signup
+            await signup(name,email, password);  
+            setIsSignedUp(true); 
         }
         catch(e){
             console.log("error:",e);

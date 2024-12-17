@@ -6,17 +6,17 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate=useNavigate();
-    // const navigate = useNavigate(); // Uncomment if using navigation
+   
 
     const handleLogin = async (e) => {
         console.log("Email:", email, "Password:", password);
-        e.preventDefault();  // Prevents the form from submitting normally
+        e.preventDefault();  
         try{
-            await login(email, password);  // Calls the signup function
-            setIsLoggedIn(true); // Set isSignedUp to true after successful signup
+            await login(email, password);  
+            setIsLoggedIn(true); 
 
             setTimeout(() => {
-                navigate('/');  // Navigate to home after 3 seconds
+                navigate('/');  
             }, 3000);
         }
         catch(e){
@@ -26,11 +26,10 @@ const Login = () => {
 
     useEffect(() => {
         if (isLoggedIn) {
-            // Uncomment if you want to navigate after login
-            // navigate('/dashboard');  
+          
             console.log('Logged in successfully!');
         }
-    }, [isLoggedIn]);  // Will trigger when 'isLoggedIn' changes
+    }, [isLoggedIn]);  
 
     return (
         
