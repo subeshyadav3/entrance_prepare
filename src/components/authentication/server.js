@@ -6,7 +6,7 @@ const client = new Client()
     .setEndpoint('https://cloud.appwrite.io/v1')  // Set Appwrite API endpoint
     .setProject('6760fb88001e2e2f74e7');  // Set Appwrite Project ID
 
-const account = new Account(client);
+export const account = new Account(client);
 
 // Login function
 export const login = async (email, password) => {
@@ -15,6 +15,7 @@ export const login = async (email, password) => {
         console.log("Logged in successfully");
     } catch (e) {
         console.log("Login failed", e);
+        throw e;
     }
 };
 //signup function
