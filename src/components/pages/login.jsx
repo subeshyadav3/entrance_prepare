@@ -1,44 +1,55 @@
 import { useEffect, useState } from "react";
 import { login } from "../authentication/server";
-import { Navigate,useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
+
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const navigate=useNavigate();
-   
+    const [isHandling, setIsHandling] = useState(false);
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const handleLogin = async (e) => {
-        console.log("Email:", email, "Password:", password);
-        e.preventDefault();  
-        try{
-            await login(email, password);  
-            setIsLoggedIn(true); 
+        e.preventDefault();
+        setError('');
+        if (isHandling) return;
+        setIsHandling(true);
+
+        if (!email || !password) {
+            setError("Both email and password are required.");
+            setIsHandling(false);
+            return;
+        }
+
+        try {
+            await login(email, password);
+            setIsLoggedIn(true);
 
             setTimeout(() => {
-                navigate('/');  
+                navigate('/');
             }, 3000);
+        } catch (e) {
+            console.log("Error:", e);
+            setError("Login failed. Please try again.");
+        } finally {
+            setIsHandling(false);
         }
-        catch(e){
-            console.log("error:",e);
-        }  
     };
 
     useEffect(() => {
         if (isLoggedIn) {
-          
             console.log('Logged in successfully!');
         }
-    }, [isLoggedIn]);  
+    }, [isLoggedIn]);
 
     return (
-        
-            <div className="w-full flex justify-center items-center mt-20 mb-20 bg-[#FCFCFC]">
-                <div className="h-[350px] bg-white p-8 shadow-lg rounded-lg">
-                    {!isLoggedIn?(
+        <div className="w-full flex justify-center items-center mt-20 mb-20 bg-[#FCFCFC]">
+            <div className="h-[350px] bg-white p-8 shadow-lg rounded-lg">
+                {!isLoggedIn ? (
                     <form className="flex flex-col space-y-4" onSubmit={handleLogin}>
                         <h1>Fill in The Login Form</h1>
-    
+                        {error && <p className="text-red-500">{error}</p>}
                         <input
                             type="email"
                             placeholder="Email"
@@ -55,19 +66,20 @@ const Login = () => {
                         />
                         <button
                             type="submit"
-                            className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                            disabled={isHandling}
+                            className={`px-4 py-2 rounded-md ${isHandling ? "bg-gray-400" : "bg-blue-500 hover:bg-blue-600"} text-white`}
                         >
-                            Submit
+                            {isHandling ? "Processing..." : "Submit"}
                         </button>
-                    </form>): (
-                        <div>
-                            <h1>Logged in successfully!</h1>
-                            <h1>moving to home....</h1>
-                        </div>
-            )}
-                </div>
+                    </form>
+                ) : (
+                    <div>
+                        <h1>Logged in successfully!</h1>
+                        <h1>moving to home....</h1>
+                    </div>
+                )}
             </div>
-        
+        </div>
     );
 };
 
