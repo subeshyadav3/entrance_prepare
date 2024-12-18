@@ -113,7 +113,11 @@ const Nav = () => {
                                     <div>Loading...</div> 
                                 ) : accountExists ? (
                                     <div className='flex flex-row gap-10 m-10'>
+
                                         <Link to="/dashboard" className="rounded-md p-2 bg-[#942192] relative group text-white hover:text-white transition-colors duration-300">Dashboard</Link>
+
+                                        <Link to="/dashboard"  className="rounded-md p-2 bg-[#942192] relative group text-white hover:text-white transition-colors duration-300">Dashboard</Link>
+
                                         <Link to="/" onClick={handleLogout} className="rounded-md p-2 bg-[#942192] relative group text-white hover:text-white transition-colors duration-300">Logout</Link>
                                         
                                     </div>
