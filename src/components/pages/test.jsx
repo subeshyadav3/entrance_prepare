@@ -1,15 +1,21 @@
 import React from 'react';
 import questions from '../questions/questions';
+import { Score } from '../authentication/server';
 
-import { useNavigate } from 'react-router-dom';
+
 
 const Test = () => {
+
+
+    
+
+
     const [correct, setCorrect] = React.useState(0)
     const [answers, setAnswers] = React.useState({})
     const [displayanswer, setDisplayAnswer] = React.useState(false)
-    const navigate = useNavigate();
+    
 
-    const handleAnswer = () => {
+    const handleAnswer = async() => {
         let initial = 0;
         setCorrect(initial)
         questions.forEach((question) => {
@@ -19,6 +25,9 @@ const Test = () => {
         });
 
         setCorrect(initial);
+
+        const result=await Score(initial); // store the score    in the database
+        console.log(result)
         alert(`You got ${initial} correct answers`);
         setDisplayAnswer(true)
 

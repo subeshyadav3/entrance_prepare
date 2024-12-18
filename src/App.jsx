@@ -11,6 +11,7 @@ import Nav from './components/pages/nav';
 import Signup from './components/pages/signup';
 
 import Test from './components/pages/test';
+import UserDashboard from './components/pages/userDashboard';
 
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/test" element={<Test />} />
+        <Route path="/dashboard" element={<UserDashboard />} />
        
       </Routes>
       <Footer />
