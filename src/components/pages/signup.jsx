@@ -7,8 +7,12 @@ const Signup = () => {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     const [isSignedUp, setIsSignedUp] = useState(false);
+    let isHandling = false;
 
     const handleSignup = async (e) => {
+        if (isHandling) return;
+        isHandling = true;
+
         console.log(name,email, password);
         e.preventDefault();  
         try{
@@ -56,6 +60,7 @@ const Signup = () => {
                     <button
                         type="submit"
                         onClick={handleSignup}
+                        onTouchStart={handleSignup}
                         className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
                     >
                         Submit
