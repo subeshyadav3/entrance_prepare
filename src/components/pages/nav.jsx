@@ -70,7 +70,7 @@ const Nav = () => {
                         <div>Loading...</div> 
                     ) : accountExists ? (
                         <div className="flex justify-center space-x-4">
-                            <Link to="/dashboard" onClick={handleLogout} className="rounded-md p-2 bg-[#942192] relative group text-white hover:text-purple-800 transition-colors duration-300">
+                            <Link to="/dashboard"  className="rounded-md p-2 bg-[#942192] relative group text-white hover:text-purple-800 transition-colors duration-300">
                                 Dashboard
                             </Link>
                             <Link to="/" onClick={handleLogout} className="rounded-md p-2 bg-[#942192] relative group text-white hover:text-purple-800 transition-colors duration-300">
@@ -113,7 +113,7 @@ const Nav = () => {
                                     <div>Loading...</div> 
                                 ) : accountExists ? (
                                     <div className='flex flex-row gap-10 m-10'>
-                                        <Link to="/dashboard" onClick={handleLogout} className="rounded-md p-2 bg-[#942192] relative group text-white hover:text-white transition-colors duration-300">Dashboard</Link>
+                                        <Link to="/dashboard"  className="rounded-md p-2 bg-[#942192] relative group text-white hover:text-white transition-colors duration-300">Dashboard</Link>
                                         <Link to="/" onClick={handleLogout} className="rounded-md p-2 bg-[#942192] relative group text-white hover:text-white transition-colors duration-300">Logout</Link>
                                         
                                     </div>
