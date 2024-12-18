@@ -29,7 +29,7 @@ const Signup = () => {
         <div className="w-full flex justify-center items-center mt-20 mb-20 bg-[#FCFCFC]">
             <div className="h-[350px] bg-white p-8 shadow-lg rounded-lg ">
                 {!isSignedUp? (   
-                <form className="flex flex-col space-y-4" onSubmit={handleSignup}>
+                <div className="flex flex-col space-y-4" >
                     <h1>Create an Account </h1>
                     
                     <input
@@ -55,11 +55,12 @@ const Signup = () => {
                     />
                     <button
                         type="submit"
+                        onClick={handleSignup}
                         className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
                     >
                         Submit
                     </button>
-                </form>):(
+                </div>):(
                     <div className="flex justify-center items-center flex-col gap-5">
                     <h1>Account Created Successfully!</h1>
                     <h1>Move To Login</h1>

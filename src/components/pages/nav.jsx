@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { account } from '../authentication/server';
+import { useLocation } from 'react-router-dom'; //to get route location
+
 const Nav = () => {
     const [mobile, setMobile] = useState(false);
     const [hamburger, setHamBurger] = useState(false);
     const [accountExists, setAccountExists] = useState(null);
+    const location =useLocation();
 
+     useEffect(() => {
+
+        setHamBurger(false); //just disable the hamburger when load to another page 
+        
+     }, [location]); //to update the component when the location changes   
     // Check if the user is logged in
     useEffect(() => {
         const checkAccount = async () => {
