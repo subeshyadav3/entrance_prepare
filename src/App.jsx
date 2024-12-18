@@ -10,6 +10,7 @@ import Footer from './components/pages/footer';
 import Nav from './components/pages/nav';
 import Signup from './components/pages/signup';
 
+import Test from './components/pages/test';
 
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/test" element={<Test />} />
        
       </Routes>
       <Footer />

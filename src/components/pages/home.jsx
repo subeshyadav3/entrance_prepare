@@ -1,8 +1,10 @@
 import React from 'react';
 import img from './image.png'
+import { useNavigate } from 'react-router-dom';
 const Home = () => {
 
-    
+    const navigate= useNavigate();
+
     return (
         <div className='flex flex-col'>
             <div className='relative w-full flex flex-row  bg-[#FCFCFC]  ' >
@@ -14,10 +16,10 @@ const Home = () => {
                         </p>
                         <p className='text-justify max-w-[300px] mt-3'>Unlock your full potential by preparing to get into the top colleges that shape your future. Enhance your learning, pursue your dreams, and secure a bright career with our expert-guided entrance preparation resources.</p>
                         <div className='flex flex-row gap-10 mb-10'>
-                            <button className="flex justify-start p-4 mt-8 text-white cursor-pointer text-xl rounded-md bg-[#942192] w-fit animate-custom-bounce ">
+                            <button className="flex justify-start p-4 mt-8 text-white cursor-pointer text-xl rounded-md bg-[#942192] w-fit animate-custom-bounce " onClick={()=> navigate('/test')}>
                                 Take Test
                             </button>
-                            <button className="flex justify-start p-4 mt-8 text-xl rounded-md border-2 border-[#942192] w-fit transition duration-700 ease-in-out cursor-pointer">
+                            <button className="flex justify-start p-4 mt-8 text-xl rounded-md border-2 border-[#942192] w-fit transition duration-700 ease-in-out cursor-pointer" onClick={()=> navigate('/signup')}>
                                 Sign Up
                             </button>
 

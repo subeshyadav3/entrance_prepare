@@ -60,6 +60,7 @@ const Nav = () => {
                 <nav className="bg-violet-100 text-black text-xl h-[60px] flex justify-around items-center">
                     <div className="flex justify-center space-x-4">
                         <Link to="/" className="relative group text-black hover:text-purple-800 transition-colors duration-300">Home</Link>
+                        <Link to="/test" className="relative group text-black hover:text-purple-800 transition-colors duration-300">Test</Link>
                         <Link to="/store" className="relative group text-black hover:text-purple-800 transition-colors duration-300">Store</Link>
                         <Link to="/about" className="relative group text-black hover:text-purple-800 transition-colors duration-300">About Us</Link>
                         <Link to="/contact" className="relative group text-black hover:text-purple-800 transition-colors duration-300">Contact Us</Link>
@@ -92,6 +93,9 @@ const Nav = () => {
                             <ul className="flex flex-col text-2xl items-center gap-6">
                                 <li>
                                     <Link to="/" className="relative group text-black hover:text-purple-800 transition-colors duration-300">Home</Link>
+                                </li>
+                                <li>
+                                    <Link to="/test" className="relative group text-black hover:text-purple-800 transition-colors duration-300">Test</Link>
                                 </li>
                                 <li>
                                     <Link to="/store" className="relative group text-black hover:text-purple-800 transition-colors duration-300">Store</Link>

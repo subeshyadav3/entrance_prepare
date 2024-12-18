@@ -1,5 +1,5 @@
 // src/authentication/server.js
-import { Client, Account,ID } from "appwrite";
+import { Client, Account,ID ,Databases} from "appwrite";
 
 
 const client = new Client()
@@ -39,3 +39,29 @@ export const logout = async () => {
         console.log("Logout failed", e);
     }
 };
+
+
+// adding email subscription
+const databases=new Databases(client)
+
+export const subscribe=async(email)=>{
+    try {
+        await databases.createDocument(
+            '6762ba08003bd5a85e08',//database id
+            '6762ba190007d7787bcc', //collection id 
+
+            ID.unique(),
+            {'Email': email}
+        
+        
+        
+        )
+        console.log("Subscribed successfully")
+        
+    } catch (error) {
+        console.log(error.message)
+        throw error
+    }
+
+
+}
