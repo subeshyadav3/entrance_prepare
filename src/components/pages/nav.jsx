@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { account } from '../authentication/server';
 import { useLocation } from 'react-router-dom'; //to get route location
+import { logout } from '../authentication/server';
 
 const Nav = () => {
     const [mobile, setMobile] = useState(false);
@@ -15,6 +16,13 @@ const Nav = () => {
         
      }, [location]); //to update the component when the location changes   
     // Check if the user is logged in
+    const handleLogout = async () => {
+        console.log("logout");
+        alert("You have been logged out");
+          await logout();
+        setAccountExists(false);    
+          }
+
     useEffect(() => {
         const checkAccount = async () => {
             try {
@@ -26,7 +34,7 @@ const Nav = () => {
         };
 
         checkAccount(); 
-    }, []); 
+    }, [location]); 
 
     // Handle window resize for mobile view
     useEffect(() => {
@@ -61,7 +69,7 @@ const Nav = () => {
                         <div>Loading...</div> 
                     ) : accountExists ? (
                         <div className="flex justify-center space-x-4">
-                            <Link to="/logout" className="rounded-md p-2 bg-[#942192] relative group text-white hover:text-purple-800 transition-colors duration-300">
+                            <Link to="/" onClick={handleLogout} className="rounded-md p-2 bg-[#942192] relative group text-white hover:text-purple-800 transition-colors duration-300">
                                 Logout
                             </Link>
                         </div>
@@ -98,7 +106,7 @@ const Nav = () => {
                                     <div>Loading...</div> 
                                 ) : accountExists ? (
                                     <div className='flex flex-row gap-10 m-10'>
-                                        <Link to="/logout" className="rounded-md p-2 bg-[#942192] relative group text-white hover:text-white transition-colors duration-300">Logout</Link>
+                                        <Link to="/" onClick={handleLogout} className="rounded-md p-2 bg-[#942192] relative group text-white hover:text-white transition-colors duration-300">Logout</Link>
                                     </div>
                                 ) : (
                                     <div className='flex flex-row gap-10 m-10'>
