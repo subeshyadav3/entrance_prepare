@@ -4,7 +4,7 @@ import { subscribe } from '../authentication/server';
 
 const Footer = () => {
     const [email, setEmail] = React.useState('');
-    //to check valid email
+ 
 
     const isValidEmail = (email) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -12,11 +12,15 @@ const Footer = () => {
     };
 
 
-    const handleSubscribe=()=>{
 
+    const handleSubscribe=()=>{
+     
+      
         try {
-            if(!isValidEmail(email)){
+            if(!isValidEmail(email) && email.length<8){
                 alert("Invalid email")
+               
+               
                 return
             }
             
@@ -42,6 +46,7 @@ const Footer = () => {
                     <Link to='/contact'>Contact Us</Link>
                     <Link to='/about'>About Us</Link>
                 </div>
+               
                 
     </div>
 

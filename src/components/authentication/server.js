@@ -1,6 +1,5 @@
 // src/authentication/server.js
 import { Client, Account, ID, Databases } from "appwrite";
-import { a } from "framer-motion/client";
 
 
 const client = new Client()

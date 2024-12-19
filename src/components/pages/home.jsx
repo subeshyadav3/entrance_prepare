@@ -1,8 +1,9 @@
 import React from 'react';
 import img from './image.png'
 import { useNavigate } from 'react-router-dom';
-const Home = () => {
 
+const Home = () => {
+    
     const navigate= useNavigate();
 
     return (
