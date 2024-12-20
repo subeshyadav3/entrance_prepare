@@ -13,11 +13,9 @@ import Signup from './components/pages/signup';
 import Test from './components/pages/test';
 import UserDashboard from './components/pages/userDashboard';
 
-
 const App = () => {
- 
   return (
-    <Router basename='/entrance_prepare'>
+    <Router>
       <Nav />
       <Routes>
         <Route path="/" index element={<Home />} />
@@ -28,7 +26,6 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/test" element={<Test />} />
         <Route path="/dashboard" element={<UserDashboard />} />
-       
       </Routes>
       <Footer />
     </Router>
