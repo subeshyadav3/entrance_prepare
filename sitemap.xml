@@ -1,0 +1,16 @@
+const fs = require('fs');
+const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://subesh420.com.np/</loc>
+    <lastmod>2024-12-20T14:43:31+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://subesh420.com.np/entrance_prepare</loc>
+    <lastmod>2024-12-20T14:43:31+00:00</lastmod>
+  </url>
+  <!-- Add other pages here -->
+</urlset>`;
+
+fs.writeFileSync('public/sitemap.xml', xml);
+console.log('Sitemap generated and saved to public/sitemap.xml');
