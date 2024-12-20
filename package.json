@@ -3,6 +3,7 @@
   "homepage": "https://subesh420.com.np",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "appwrite": "^16.0.2",
     "cra-template": "1.2.0",
@@ -11,13 +12,15 @@
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.0.2",
     "react-scripts": "5.0.1",
+    "react-sitemap": "^1.0.1",
     "recharts": "^2.15.0"
   },
   "scripts": {
+    "generate-sitemap": "node generateSitemap.js",
+    "build": "npm run generate-sitemap && react-scripts build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
