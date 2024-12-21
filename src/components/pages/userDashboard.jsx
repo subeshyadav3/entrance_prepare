@@ -19,6 +19,7 @@ const UserDashboard = () => {
   });
   const [score, setScore] = useState([]); // Initialize with dummy data
 
+
   useEffect(() => {
     // Fetch user details
     const fetchUserDetails = async () => {
@@ -30,9 +31,7 @@ const UserDashboard = () => {
           registrationDate: userData.registrationDate || 'N/A',
           passwordUpdateDate: userData.passwordUpdateDate || 'N/A',
         });
-      } catch (error) {
-        console.error('Failed to fetch user details:', error);
-      }
+      
     };
 
     // Use dummy score data
