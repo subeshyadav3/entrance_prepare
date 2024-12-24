@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { account } from '../authentication/server'; // Keep this for fetching user details
-import {
-  ResponsiveContainer,
-  LineChart,
-  Line,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-  Tooltip,
-} from 'recharts';
+import { account, getScores } from '../authentication/server'; // Keep this for fetching user details
+import { Line } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 const UserDashboard = () => {
   const [user, setUser] = useState({
@@ -18,10 +13,28 @@ const UserDashboard = () => {
     passwordUpdateDate: '',
   });
   const [score, setScore] = useState([]); // Initialize with dummy data
-
+  const [render, setRender] = useState(false);
 
   useEffect(() => {
-    // Fetch user details
+    const fetchScores = () => {
+      getScores()
+        .then((scores) => {
+          console.log(scores);
+          setScore(scores); // Update the state with scores
+          setRender(true); // Set render flag to true
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          console.log("Scores Fetched");
+        });
+    };
+
+    fetchScores();
+  }, []);
+
+  useEffect(() => {
     const fetchUserDetails = async () => {
       try {
         const userData = await account.get();
@@ -31,36 +44,47 @@ const UserDashboard = () => {
           registrationDate: userData.registrationDate || 'N/A',
           passwordUpdateDate: userData.passwordUpdateDate || 'N/A',
         });
-      
-    };
-
-    // Use dummy score data
-    const generateDummyScoreData = () => {
-      const dummyData = Array.from({ length: 10 }, (_, index) => ({
-        date: `2024-01-${String(index + 1).padStart(2, '0')}`, // Dates from 2024-01-01 to 2024-01-10
-        score: Math.floor(Math.random() * 101), // Random scores between 0 and 100
-      }));
-      setScore(dummyData);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        console.log("User Details Fetched");
+      }
     };
 
     fetchUserDetails();
-    generateDummyScoreData();
   }, []);
 
+  // Prepare data for Chart.js
+  const chartData = {
+    labels: score.map((_, index) => `Score ${index + 1}`), // Label the scores
+    datasets: [
+      {
+        label: 'User Scores',
+        data: score, // Use actual score data
+        borderColor: '#8884d8',
+        backgroundColor: 'rgba(136, 132, 216, 0.2)',
+        fill: true,
+        tension: 0.4,
+      },
+    ],
+  };
+  const options = {
+    scales: {
+      y: {
+        max: 10, // Set the y-axis max to 10
+        min: 0,  // Optional: Set the y-axis min to 0 (if you want it to start from 0)
+      },
+    },
+  };
+
   const renderGraph = () => (
-    <ResponsiveContainer width="100%" height={300}>
-      <LineChart data={score}>
-        <Line type="monotone" dataKey="score" stroke="#8884d8" />
-        <CartesianGrid stroke="#ccc" />
-        <XAxis dataKey="date" />
-        <YAxis />
-        <Tooltip />
-      </LineChart>
-    </ResponsiveContainer>
+    <div className="w-full max-w-md md:max-w-lg">
+      <Line data={chartData} options={options} />
+    </div>
   );
 
   return (
-    <div className="flex flex-col items-center mt-6 px-4 md:px-10">
+    <div className="flex flex-col items-center mt-6 px-4 md:px-10 pb-10">
       {/* User Details Section */}
       <div className="flex flex-col bg-white shadow-lg p-5 mb-6 items-center w-full max-w-md md:max-w-lg rounded-lg">
         <h1 className="text-2xl md:text-3xl mb-4">User Details</h1>
@@ -76,9 +100,7 @@ const UserDashboard = () => {
       </div>
 
       {/* Graph Section */}
-      <div className="w-full max-w-md md:max-w-lg">
-        {score.length > 0 ? renderGraph() : <p className="text-center">No data available for the graph</p>}
-      </div>
+      {render ? renderGraph() : <p className="text-center">No data available for the graph</p>}
     </div>
   );
 };
